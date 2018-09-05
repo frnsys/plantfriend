@@ -1,7 +1,7 @@
 #!/bin/bash
 
 while true; do
-    streamer -s 1024x768 -f jpeg -o /tmp/output.jpeg
+    fswebcam -d /dev/video1 -r 1920x1080 -F 1 -S 32 --no-banner /tmp/output.jpeg
     dt=$(date +"%Y-%m-%d_%H-%M-%S")
     cp /tmp/output.jpeg "plants/${dt}.jpg"
     scp /tmp/output.jpeg ftseng@starbase.in:/srv/frnsys/plants.jpg
